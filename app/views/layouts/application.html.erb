@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Oddscommerce" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= yield :head %>
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <!-- ✅ Navbar -->
+    <nav class="bg-white shadow-md py-4 px-6 flex justify-between items-center fixed top-0 left-0 right-0 z-50">
+      <!-- ✅ โลโก้ด้านซ้าย -->
+      <div class="flex items-center space-x-2">
+        <%= link_to root_path do %>
+          <%= image_tag "ODT_Primary.png", alt: "Oddscommerce Logo", style: "height: 40px; width: auto;" %>
+        <% end %>
+      </div>
+      <!-- ✅ เมนูด้านขวา -->
+      <div class="flex items-center space-x-4">
+        <% if user_signed_in? %>
+          <span class="text-gray-700 text-sm">👋 <%= current_user.email %></span>
+          <%= button_to "ออกจากระบบ", destroy_user_session_path,
+          method: :delete,
+          class: "text-blue-600 font-semibold hover:text-blue-800 hover:scale-105 transform transition-all duration-200 text-sm" %>
+        <% else %>
+          <%= link_to "เข้าสู่ระบบ", new_user_session_path,
+          class: "text-blue-600 font-semibold hover:text-blue-800 hover:scale-105 transform transition-all duration-200 text-sm" %>
+          <%= link_to "สมัครสมาชิก", new_user_registration_path,
+          class: "bg-blue-500 hover:bg-blue-600 hover:scale-105 transform transition-all duration-200 text-white px-4 py-2 rounded-lg text-sm" %>
+        <% end %>
+      </div>
+    </nav>
+    <main class="container mx-auto mt-28 px-5 flex">
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </main>
+  </body>
+</html>

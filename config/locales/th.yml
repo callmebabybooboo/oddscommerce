@@ -1,0 +1,17 @@
+th:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "กรุณากรอกอีเมล"
+              taken: "อีเมลนี้ถูกใช้งานแล้ว"
+              invalid: "รูปแบบอีเมลไม่ถูกต้อง"
+            password:
+              blank: "กรุณากรอกรหัสผ่าน"
+              too_short: "รหัสผ่านสั้นเกินไป (ต้องมีอย่างน้อย %{count} ตัวอักษร)"
+              too_long: "รหัสผ่านยาวเกินไป (ต้องไม่เกิน %{count} ตัวอักษร)"
+            password_confirmation:
+              blank: "กรุณายืนยันรหัสผ่าน"
+              confirmation: "รหัสผ่านไม่ตรงกัน" 

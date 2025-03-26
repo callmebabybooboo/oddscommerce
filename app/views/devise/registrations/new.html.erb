@@ -1,0 +1,47 @@
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="w-full max-w-md p-8 bg-white rounded-2xl shadow-md mx-auto">
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6"><%= t('devise.shared.links.sign_up') %></h2>
+    <%= form_with model: resource, url: registration_path(resource_name), local: true do |f| %>
+      <div class="mb-4">
+        <%= f.label :email, t('devise.forms.labels.email'), class: "block text-sm font-medium text-gray-700" %>
+        <div class="mt-1">
+          <%= f.email_field :email, 
+              autofocus: true, 
+              autocomplete: "email", 
+              class: "block w-full px-4 py-2 border #{resource.errors[:email].present? ? 'border-red-500' : 'border-gray-300'} rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none" %>
+          <% if resource.errors[:email].present? %>
+            <p class="mt-2 text-sm text-red-600"><%= resource.errors[:email].first %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="mb-4">
+        <%= f.label :password, t('devise.forms.labels.password'), class: "block text-sm font-medium text-gray-700" %>
+        <div class="mt-1">
+          <%= f.password_field :password, 
+              autocomplete: "new-password", 
+              class: "block w-full px-4 py-2 border #{resource.errors[:password].present? ? 'border-red-500' : 'border-gray-300'} rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none" %>
+          <% if resource.errors[:password].present? %>
+            <p class="mt-2 text-sm text-red-600"><%= resource.errors[:password].first %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="mb-6">
+        <%= f.label :password_confirmation, t('devise.forms.labels.password_confirmation'), class: "block text-sm font-medium text-gray-700" %>
+        <div class="mt-1">
+          <%= f.password_field :password_confirmation, 
+              autocomplete: "new-password", 
+              class: "block w-full px-4 py-2 border #{resource.errors[:password_confirmation].present? ? 'border-red-500' : 'border-gray-300'} rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none" %>
+          <% if resource.errors[:password_confirmation].present? %>
+            <p class="mt-2 text-sm text-red-600"><%= resource.errors[:password_confirmation].first %></p>
+          <% end %>
+        </div>
+      </div>
+      <div>
+        <%= f.submit t('devise.forms.buttons.sign_up'), class: "w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 font-semibold transition duration-150 ease-in-out" %>
+      </div>
+    <% end %>
+    <div class="mt-4 text-center">
+      <%= link_to "มีบัญชีอยู่แล้ว? #{t('devise.shared.links.sign_in')}", new_user_session_path, class: "text-blue-600 hover:underline" %>
+    </div>
+  </div>
+</div>

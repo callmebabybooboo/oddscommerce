@@ -1,0 +1,41 @@
+th:
+  devise:
+    failure:
+      unauthenticated: "กรุณาเข้าสู่ระบบก่อนดำเนินการต่อ"
+      invalid: "อีเมลหรือรหัสผ่านไม่ถูกต้อง"
+      not_found_in_database: "อีเมลหรือรหัสผ่านไม่ถูกต้อง"
+      already_authenticated: "คุณได้เข้าสู่ระบบแล้ว"
+    sessions:
+      signed_in: "เข้าสู่ระบบสำเร็จ"
+      signed_out: "ออกจากระบบสำเร็จ"
+      already_signed_out: "ออกจากระบบสำเร็จ"
+    registrations:
+      signed_up: "ยินดีต้อนรับ! คุณได้ลงทะเบียนสำเร็จแล้ว"
+      updated: "อัพเดทข้อมูลเรียบร้อยแล้ว"
+      destroyed: "ลบบัญชีผู้ใช้เรียบร้อยแล้ว"
+    passwords:
+      updated: "เปลี่ยนรหัสผ่านเรียบร้อยแล้ว"
+    shared:
+      links:
+        sign_up: "สมัครสมาชิก"
+        sign_in: "เข้าสู่ระบบ"
+        forgot_password: "ลืมรหัสผ่าน?"
+        no_confirmation_instructions: "ไม่ได้รับอีเมลยืนยันการสมัคร?"
+        no_unlock_instructions: "ไม่ได้รับอีเมลปลดล็อคบัญชี?"
+    forms:
+      labels:
+        email: "อีเมล"
+        password: "รหัสผ่าน"
+        password_confirmation: "ยืนยันรหัสผ่าน"
+        remember_me: "จดจำการเข้าสู่ระบบ"
+      buttons:
+        sign_up: "สมัครสมาชิก"
+        sign_in: "เข้าสู่ระบบ"
+    errors:
+      messages:
+        blank: "ไม่สามารถเว้นว่างได้"
+        taken: "ถูกใช้งานแล้ว"
+        invalid: "ไม่ถูกต้อง"
+        too_short: "สั้นเกินไป (ต้องมีอย่างน้อย %{count} ตัวอักษร)"
+        too_long: "ยาวเกินไป (ต้องไม่เกิน %{count} ตัวอักษร)"
+        confirmation: "ไม่ตรงกับการยืนยัน"
