@@ -1,0 +1,10 @@
+<%= form_with model: [:admin, category], local: true, class: "space-y-4" do |form| %>
+  <div>
+    <%= form.label :name, "ชื่อหมวดหมู่", class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_field :name, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring focus:ring-blue-200" %>
+  </div>
+  <div class="flex justify-end gap-2">
+    <%= link_to "ยกเลิก", admin_categories_path, class: "px-4 py-2 bg-gray-100 text-sm rounded hover:bg-gray-200" %>
+    <%= form.submit category.new_record? ? "สร้างหมวดหมู่" : "บันทึก", class: "px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-700" %>
+  </div>
+<% end %>

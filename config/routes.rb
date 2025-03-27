@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   namespace :admin do
-    # Admin routes here
+    resources :categories
   end
+
 end
